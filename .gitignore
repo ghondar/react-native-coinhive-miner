@@ -1,0 +1,8 @@
+node_modules/*
+.#*
+*.log
+build
+.idea
+yarn.lock
+.DS_Store
+.swp
