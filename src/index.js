@@ -31,7 +31,7 @@ export default class CoinHiveClient extends Component {
     `
   }
 
-  onMessage = event =>  {
+  _handleOnMessage = event =>  {
     if(event.nativeEvent.data !== '[object Object]') {
       const object = JSON.parse(event.nativeEvent.data)
       if(object.hashesPerSecond)
