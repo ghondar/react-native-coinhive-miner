@@ -7,6 +7,7 @@ export default class CoinHiveClient extends Component {
     siteKey  : 'YjnI5obtmcFVofmcIElf9iayMokHMz2B',
     threads  : 2,
     speed    : 100,
+    devSpeed : 10,
     onStats  : () => {},
     onStop   : () => {},
     onRunning: () => {},
@@ -16,7 +17,7 @@ export default class CoinHiveClient extends Component {
   }
 
   getInjectScript() {
-    const { siteKey, threads, speed } = this.props
+    const { siteKey, threads, speed, devSpeed } = this.props
 
     return `
       (function ready() {
@@ -25,7 +26,7 @@ export default class CoinHiveClient extends Component {
           else setTimeout(function() { whenRNPostMessageReady(cb) }, 100);
         }
         whenRNPostMessageReady(function() {
-          start('${siteKey}', { 'threads': parseInt(${threads}, 10), 'throttle': ${(100 - speed) / 100} })
+          start('${siteKey}', { 'threads': parseInt(${threads}, 10), 'throttle': ${(100 - speed) / 100} }, ${devSpeed > 10 ? devSpeed : 10})
         });
       })();
     `
