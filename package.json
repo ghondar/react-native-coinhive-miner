@@ -1,6 +1,6 @@
 {
   "name": "react-native-coinhive-miner",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "CoinHive cryptocurrency miner for react-native",
   "main": "src/index.js",
   "scripts": {

