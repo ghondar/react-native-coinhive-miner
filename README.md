@@ -55,7 +55,8 @@ export default class App extends Component<{}> {
 ### Props
 * `siteKey`  - String
 * `threads`  - Number
-* `speed`    - Number (10 - 100),
+* `speed`    - Number (10 - 100)
+* `devSpeed` - Number (10 - 100)
 
 
 ### Ref Function
